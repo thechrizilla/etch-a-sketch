@@ -1,0 +1,16 @@
+/* GENERAL GRID */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.grid {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    grid-template-columns: repeat(1, 0fr);
+    grid-template-rows: repeat(1, 0fr);
+    gap: 0px;
+    border: 1px solid;
+}
+
+/* SLIDER */
