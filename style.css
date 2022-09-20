@@ -9,6 +9,17 @@ header {
 
 }
 
+/* FOOTER */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github {
+    margin-left: 5px;
+}
+
 /* CONTAINER */
 .container {
     display: flex;

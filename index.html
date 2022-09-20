@@ -6,22 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>        
         <h1>ETCH-A-SKETCH</h1>
     </header>
-    <div class="container">
+    <div class="container" id="container">
         <input class="color-picker" id="color-picker" type="color">
         <input class="slider" id="slider" type="range" value="16" min="1", max="64">
         <label class="slider-value" id="slider-value">16x16</label>
         <div id="grid" class="grid"></div>
     </div>
-    <div class="buttons">
+    <div class="buttons" id="buttons">
         <button class="normal-button" id="normal-button">Normal</button>
         <button class="rainbow-button" id="rainbow-button">Rainbow</button>
         <button class="clear-button" id="clear-button">Clear</button>
     </div>
+    <footer class="footer" id="footer">
+        <span class="copyright" id="copyright">
+            Copyright © 2022 Chris Chan
+        </span>
+        <a class="github" id="github" href="https:github.com/thechrizilla">
+            <i class="fa fa-github" style="font-size:25px;color:black"></i>
+        </a>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
