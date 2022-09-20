@@ -8,12 +8,19 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
+    <header>        
         <h1>ETCH-A-SKETCH</h1>
-        <input class="color-picker" id="color-picker" type="color" value="white">
+    </header>
+    <div class="container">
+        <input class="color-picker" id="color-picker" type="color">
         <input class="slider" id="slider" type="range" value="16" min="1", max="64">
         <label class="slider-value" id="slider-value">16x16</label>
         <div id="grid" class="grid"></div>
+    </div>
+    <div class="buttons">
+        <button class="normal-button" id="normal-button">Normal</button>
+        <button class="rainbow-button" id="rainbow-button">Rainbow</button>
+        <button class="clear-button" id="clear-button">Clear</button>
     </div>
     <script src="script.js"></script>
 </body>

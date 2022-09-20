@@ -12,12 +12,19 @@ const colorPicker = document.getElementById('color-picker');
 const sliderValue = document.getElementById('slider-value');
 const rainbowBtn = document.getElementById('rainbow-button');
 const clearBtn = document.getElementById('clear-button');
+const normalBtn = document.getElementById('normal-button');
+
+let mode = "normal";
 
 
 // event listeners
 slider.oninput = (e) => updateSize(e.target.value);
 colorPicker.oninput = (e) => updateColor(e.target.value);
 
+// extra buttons for fun
+clearBtn.onclick = () => updateSize(currentSize);
+rainbowBtn.onclick = () => rainbowMode();
+normalBtn.onclick = () => normalMode();
 
 // update size
 function updateSize(newSize) {
@@ -52,7 +59,27 @@ function setupGrid(num) {
 
 // change the color of each square
 function colorSquare(e) {
-    e.target.style.background = currentPickerColor;
+    if (mode === "normal") {
+        e.target.style.background = currentPickerColor;
+    }
+    else if (mode === "rainbow") {
+        let color = rainbowMode();
+        e.target.style.background = color;
+    }
+}
+
+
+function normalMode() {
+    mode = "normal";
+}
+// rainbow mode
+function rainbowMode() {
+    mode = "rainbow";
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const rgb = `rgb(${r},${g},${b})`
+    return rgb;
 }
 
 
