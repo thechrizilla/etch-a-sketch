@@ -13,12 +13,12 @@ const colorPicker = document.getElementById('color-picker');
 const sliderValue = document.getElementById('slider-value');
 const rainbowBtn = document.getElementById('rainbow-button');
 const clearBtn = document.getElementById('clear-button');
-const normalBtn = document.getElementById('normal-button');
+const pencilBtn = document.getElementById('pencil-button');
 const eraserBtn = document.getElementById('eraser-button');
 const container = document.getElementById('container');
 
 // state of buttons
-let mode = "normal";
+let mode = "pencil";
 
 // state of mouse
 let mouse = "up";
@@ -31,10 +31,11 @@ slider.oninput = (e) => updateSize(e.target.value);
 colorPicker.oninput = (e) => updateColor(e.target.value);
 
 // extra buttons for fun
-clearBtn.onclick = () => updateSize(currentSize);
-rainbowBtn.onclick = () => rainbowMode();
-normalBtn.onclick = () => normalMode();
+pencilBtn.onclick = () => pencilMode();
 eraserBtn.onclick = () => eraserMode();
+rainbowBtn.onclick = () => rainbowMode();
+clearBtn.onclick = () => updateSize(currentSize);
+
 
 // update size
 function updateSize(newSize) {
@@ -71,7 +72,7 @@ function setupGrid(num) {
 // change the color of each square
 function colorSquare(e) {
     if (e.type === 'mouseover' && mouse === "up") return;
-    if (mode === "normal") {
+    if (mode === "pencil") {
         e.target.style.background = currentPickerColor;
     }
     else if (mode === "rainbow") {
@@ -83,9 +84,9 @@ function colorSquare(e) {
     }
 }
 
-// normal mode
-function normalMode() {
-    mode = "normal";
+// pencil mode
+function pencilMode() {
+    mode = "pencil";
 }
 
 // eraser mode
