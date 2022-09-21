@@ -15,9 +15,15 @@ const rainbowBtn = document.getElementById('rainbow-button');
 const clearBtn = document.getElementById('clear-button');
 const normalBtn = document.getElementById('normal-button');
 const eraserBtn = document.getElementById('eraser-button');
+const container = document.getElementById('container');
 
 // state of buttons
 let mode = "normal";
+
+// state of mouse
+let mouse = "up";
+container.onmousedown = () => (mouse = "down");
+container.onmouseup = () => (mouse = "up");
 
 
 // event listeners
@@ -57,12 +63,14 @@ function setupGrid(num) {
         gridItem.classList.add('grid-item');
         gridItem.style.background = DEFAULT_COLOR;
         gridItem.addEventListener('mouseover', colorSquare);
+        gridItem.addEventListener('mousedown', colorSquare);
         grid.appendChild(gridItem);
     }
 }
 
 // change the color of each square
 function colorSquare(e) {
+    if (e.type === 'mouseover' && mouse === "up") return;
     if (mode === "normal") {
         e.target.style.background = currentPickerColor;
     }
@@ -74,7 +82,6 @@ function colorSquare(e) {
         e.target.style.background = DEFAULT_COLOR;
     }
 }
-
 
 // normal mode
 function normalMode() {
@@ -95,7 +102,6 @@ function rainbowMode() {
     const rgb = `rgb(${r},${g},${b})`
     return rgb;
 }
-
 
 // on load
 window.onload = () => {
