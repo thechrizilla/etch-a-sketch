@@ -6,6 +6,7 @@ const DEFAULT_SIZE = 16;
 let currentPickerColor = DEFAULT_PICKER_COLOR;
 let currentSize = DEFAULT_SIZE;
 
+// DOM manipulation
 const grid = document.getElementById('grid');
 const slider = document.getElementById('slider');
 const colorPicker = document.getElementById('color-picker');
@@ -13,7 +14,9 @@ const sliderValue = document.getElementById('slider-value');
 const rainbowBtn = document.getElementById('rainbow-button');
 const clearBtn = document.getElementById('clear-button');
 const normalBtn = document.getElementById('normal-button');
+const eraserBtn = document.getElementById('eraser-button');
 
+// state of buttons
 let mode = "normal";
 
 
@@ -25,6 +28,7 @@ colorPicker.oninput = (e) => updateColor(e.target.value);
 clearBtn.onclick = () => updateSize(currentSize);
 rainbowBtn.onclick = () => rainbowMode();
 normalBtn.onclick = () => normalMode();
+eraserBtn.onclick = () => eraserMode();
 
 // update size
 function updateSize(newSize) {
@@ -66,12 +70,22 @@ function colorSquare(e) {
         let color = rainbowMode();
         e.target.style.background = color;
     }
+    else if (mode === "eraser") {
+        e.target.style.background = DEFAULT_COLOR;
+    }
 }
 
 
+// normal mode
 function normalMode() {
     mode = "normal";
 }
+
+// eraser mode
+function eraserMode() {
+    mode = "eraser";
+}
+
 // rainbow mode
 function rainbowMode() {
     mode = "rainbow";
